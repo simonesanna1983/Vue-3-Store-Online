@@ -6,10 +6,15 @@ import Profile from './profile/Profile.vue';
 import '../styles/container.css';
 import Todo from '../model/todo';
 
+defineProps<{ isSidebarOpen: Boolean }>();
+
+const emit = defineEmits<{ openSidebar: (isOpen: Boolean) => void }>();
+
+
 const todos = ref<Todo>([]);
 
 const todosFiltered = ref<Todo>([]);
-const isSidebarOpen = ref(false);
+
 
 onMounted(() => {
   fetch('https://jsonplaceholder.typicode.com/todos')
@@ -35,8 +40,7 @@ function filterByTitle(title: String) {
 }
 
 function handleCloseSidebarCallBack(){
-
-  isSidebarOpen.value= false;
+   emit('openSidebar', false);
 
 }
 
@@ -46,6 +50,6 @@ function handleCloseSidebarCallBack(){
   <div class="container-wrapper w-75">
     <Search @searchCallBack="handleSearchCallBack" />
     <List :todos="todosFiltered" />
-    <Profile :isSidebarOpen="isSidebarOpen"  @closeSidebar="handleCloseSidebarCallBack" />
+    <Profile :isSidebarOpen="isSidebarOpen"  @openSidebar="handleCloseSidebarCallBack" />
   </div>
 </template>

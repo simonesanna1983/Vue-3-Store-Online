@@ -4,11 +4,11 @@ import '../../styles/profile.css';
 
 defineProps<{ isSidebarOpen: Boolean }>();
 
-const emit = defineEmits<{ closeSidebar: () => void }>();
+const emit = defineEmits<{ openSidebar: (isOpen: Boolean) => void }>();
 
 
 function onCloseSideBar() {
-  emit('closeSideBar');
+  emit('openSidebar', false);
 }
 
 </script>
@@ -21,7 +21,7 @@ function onCloseSideBar() {
             <img src="https://via.placeholder.com/150" alt="User Avatar">
             <div class="user-details">
                 <h3>Adelina</h3>
-                <p>Fake</p>
+                <p>Adelina Fake Profile</p>
             </div>
     </div>
        
