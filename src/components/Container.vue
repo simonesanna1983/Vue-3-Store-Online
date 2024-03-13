@@ -2,12 +2,14 @@
 import { ref, onMounted } from 'vue';
 import List from './list/List.vue';
 import Search from './search/Search.vue';
+import Profile from './profile/Profile.vue';
 import '../styles/container.css';
 import Todo from '../model/todo';
 
 const todos = ref<Todo>([]);
 
 const todosFiltered = ref<Todo>([]);
+const isSidebarOpen = ref(false);
 
 onMounted(() => {
   fetch('https://jsonplaceholder.typicode.com/todos')
@@ -31,11 +33,19 @@ function filterByTitle(title: String) {
 
   console.log('todosFiltered.value', todosFiltered.value);
 }
+
+function handleCloseSidebarCallBack(){
+
+  isSidebarOpen.value= false;
+
+}
+
 </script>
 
 <template>
   <div class="container-wrapper w-75">
     <Search @searchCallBack="handleSearchCallBack" />
     <List :todos="todosFiltered" />
+    <Profile :isSidebarOpen="isSidebarOpen"  @closeSidebar="handleCloseSidebarCallBack" />
   </div>
 </template>

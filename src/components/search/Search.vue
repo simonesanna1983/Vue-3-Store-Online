@@ -32,6 +32,7 @@ function test(event) {
 <style scoped>
 .input-group {
   width: 300px;
+  padding-bottom: 15px;
 }
 i {
     margin-left: -30px !important;

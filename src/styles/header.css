@@ -1,10 +1,33 @@
 .header {
   background: #fff;
   top: 0;
-  box-shadow: 0 -4px 8px #0000001f;
+  box-shadow: 0 4px 8px #0000001f;
   left: 0;
-  padding: 20px 20px 10px;
+  padding: 20px;
   position: fixed;
   width: 100%;
   z-index: 999;
+}
+
+.right-align {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Center items vertically */
+}
+
+.right-align button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.right-align button:hover {
+  background-color: #0056b3;
+}
+
+.right-align span {
+  margin-right: 10px; /* Add some space between the username and the button */
 }

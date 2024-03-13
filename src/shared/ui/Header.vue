@@ -6,5 +6,8 @@ defineProps<{ text: string }>();
 </script>
 
 <template>
-  <div class="header">{{ text }}</div>
+  <div class="header right-align">
+    <div>{{ text }}</div>
+    <div>👤</div>
+  </div>
 </template>
