@@ -17,6 +17,7 @@ function onOpenSidebar() {
     <div>☰</div>
     <div class="avatar" @click="onOpenSidebar">{{ text }} 👤</div>
   </div>
+  
 </template>
 
 
